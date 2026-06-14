@@ -1,0 +1,350 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prajwal G N | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f7fc;
+    color:#333;
+}
+
+/* Navigation */
+nav{
+    background:#0f172a;
+    padding:15px 0;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#60a5fa;
+}
+
+/* Hero Section */
+.hero{
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero img{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.hero h1{
+    margin-top:20px;
+    font-size:42px;
+}
+
+.hero h3{
+    margin-top:10px;
+    font-weight:400;
+}
+
+.hero p{
+    max-width:800px;
+    margin:20px auto;
+    line-height:1.8;
+}
+
+/* Main Container */
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* Sections */
+section{
+    background:white;
+    margin:25px 0;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+section h2{
+    color:#1e40af;
+    margin-bottom:20px;
+}
+
+/* Education */
+.education-card{
+    background:#f8fafc;
+    padding:20px;
+    border-left:5px solid #2563eb;
+    border-radius:10px;
+}
+
+.education-card h3{
+    color:#1e40af;
+    margin-bottom:10px;
+}
+
+/* Skills */
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+}
+
+.skill{
+    background:#dbeafe;
+    padding:12px;
+    text-align:center;
+    border-radius:8px;
+    font-weight:600;
+}
+
+/* Projects */
+.project{
+    background:#f8fafc;
+    padding:20px;
+    border-left:5px solid #2563eb;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.project h3{
+    color:#1e40af;
+    margin-bottom:8px;
+}
+
+/* Lists */
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+/* Contact */
+.contact p{
+    margin-bottom:10px;
+}
+
+.btn{
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    padding:12px 22px;
+    text-decoration:none;
+    border-radius:8px;
+    margin-top:10px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+}
+
+/* Footer */
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+@media(max-width:768px){
+
+nav ul{
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.hero h1{
+    font-size:32px;
+}
+
+.hero img{
+    width:160px;
+    height:160px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#certifications">Certifications</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+
+<img src="profile.jpeg" alt="Prajwal G N">
+
+<h1>Prajwal G N</h1>
+
+<h3>Aspiring AI & Data Science Engineer</h3>
+
+<p>
+I am a B.Tech student specializing in Artificial Intelligence and Data Science at Reva University. Passionate about technology, programming, and problem-solving, I enjoy developing innovative software solutions and continuously expanding my knowledge in emerging technologies.
+</p>
+
+</section>
+
+<div class="container">
+
+<!-- About -->
+<section id="about">
+
+<h2>About Me</h2>
+
+<p>
+Hello! I'm Prajwal G N from Bangalore, currently pursuing a Bachelor of Technology in Artificial Intelligence and Data Science at Reva University. I am enthusiastic about software development, artificial intelligence, and creating technology-driven solutions that solve real-world problems. I enjoy learning new skills, working in teams, and taking on challenging projects.
+</p>
+
+</section>
+
+<!-- Education -->
+<section id="education">
+
+<h2>Education</h2>
+
+<div class="education-card">
+    <h3>Bachelor of Technology (B.Tech)</h3>
+    <p>Artificial Intelligence and Data Science</p>
+    <p>Reva University, Bangalore, Karnataka</p>
+    <p><em>Currently Pursuing | 2nd Semester</em></p>
+</div>
+
+</section>
+
+<!-- Skills -->
+<section id="skills">
+
+<h2>Skills</h2>
+
+<div class="skills">
+    <div class="skill">Communication</div>
+    <div class="skill">Team Work</div>
+    <div class="skill">Python</div>
+    <div class="skill">C</div>
+    <div class="skill">C++</div>
+    <div class="skill">HTML</div>
+    <div class="skill">SQL</div>
+</div>
+
+</section>
+
+<!-- Projects -->
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="project">
+    <h3>2D Graphics Editor</h3>
+    <p>Developed a menu-driven graphics editor using C programming concepts and computer graphics fundamentals.</p>
+</div>
+
+<div class="project">
+    <h3>Smart Parking System</h3>
+    <p>Designed a parking management solution for efficient vehicle tracking and smart parking allocation.</p>
+</div>
+
+<div class="project">
+    <h3>Sense Farming Game</h3>
+    <p>Created an interactive farming-based game that combines logical thinking with engaging gameplay.</p>
+</div>
+
+</section>
+
+<!-- Certifications -->
+<section id="certifications">
+
+<h2>Achievements & Certifications</h2>
+
+<ul>
+    <li>IBM Skilled Online Course and Certification</li>
+    <li>Wadhwani Foundation Course and Certification</li>
+</ul>
+
+</section>
+
+<!-- Hobbies -->
+<section>
+
+<h2>Hobbies</h2>
+
+<ul>
+    <li>Playing Cricket</li>
+    <li>Gaming</li>
+</ul>
+
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+
+<h2>Contact Information</h2>
+
+<p><strong>Email:</strong> prajwalgnprajwal7@gmail.com</p>
+
+<p><strong>Phone:</strong> +91 9901377844</p>
+
+<a href="mailto:prajwalgnprajwal7@gmail.com" class="btn">
+Send Email
+</a>
+
+</section>
+
+</div>
+
+<footer>
+<p>© 2025 Prajwal G N | Portfolio Website</p>
+</footer>
+
+</body>
+</html>
+```
+
