@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   ArrowUpRight,
   Github,
@@ -8,6 +7,11 @@ import {
   Code2,
   BarChart3,
 } from 'lucide-react';
+
+const LINKEDIN_URL =
+  'https://www.linkedin.com/in/prajwal-g-n-2b85b8359/';
+
+const GITHUB_URL = 'https://github.com/PrajwalGN-35';
 
 const projects = [
   {
@@ -87,7 +91,6 @@ const skills = [
     title: 'Cloud & APIs',
     items: [
       'Microsoft Azure',
-      'Azure Functions',
       'API Development',
       'API Integration',
       'GitHub',
@@ -129,52 +132,25 @@ const certifications = [
 ];
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const closeMenu = () => setMenuOpen(false);
-
   return (
     <div className="site">
 
       {/* NAVIGATION */}
       <nav className="nav">
-        <a href="#top" className="brand" onClick={closeMenu}>
+        <a href="#top" className="brand">
           PGN<span>.</span>
         </a>
 
-        <button
-          className="menu-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
-        >
-          <span></span>
-          <span></span>
-        </button>
-
-        <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          <a href="#projects" onClick={closeMenu}>
-            Projects
-          </a>
-
-          <a href="#skills" onClick={closeMenu}>
-            Skills
-          </a>
-
-          <a href="#about" onClick={closeMenu}>
-            About
-          </a>
-
-          <a href="#certifications" onClick={closeMenu}>
-            Certifications
-          </a>
-
-          <a href="#contact" onClick={closeMenu}>
-            Contact
-          </a>
+        <div className="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#contact">Contact</a>
         </div>
 
         <a
-          href="https://www.linkedin.com/in/prajwal-g-n-2b85b8359/"
+          href={LINKEDIN_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="nav-linkedin"
@@ -183,9 +159,9 @@ function App() {
         </a>
       </nav>
 
-      {/* HERO */}
       <main id="top">
 
+        {/* HERO */}
         <section className="hero">
           <div className="hero-content">
 
@@ -217,7 +193,7 @@ function App() {
               </a>
 
               <a
-                href="https://github.com/PrajwalGN-35"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="button button-secondary"
@@ -261,7 +237,10 @@ function App() {
           <div className="projects-list">
 
             {projects.map((project) => (
-              <article className="project-card" key={project.number}>
+              <article
+                className="project-card"
+                key={project.number}
+              >
 
                 <div className="project-number">
                   {project.number}
@@ -316,11 +295,13 @@ function App() {
           <div className="skills-grid">
 
             {skills.map((skill) => {
-
               const Icon = skill.icon;
 
               return (
-                <article className="skill-card" key={skill.title}>
+                <article
+                  className="skill-card"
+                  key={skill.title}
+                >
 
                   <div className="skill-icon">
                     <Icon size={25} strokeWidth={1.8} />
@@ -378,7 +359,7 @@ function App() {
             <div className="about-links">
 
               <a
-                href="https://github.com/PrajwalGN-35"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -387,7 +368,7 @@ function App() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/prajwal-g-n-2b85b8359/"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -451,7 +432,9 @@ function App() {
         >
 
           <div className="section-heading">
-            <p className="eyebrow">Certifications & Learning</p>
+            <p className="eyebrow">
+              Certifications & Learning
+            </p>
 
             <h2>
               Learning beyond
@@ -500,7 +483,9 @@ function App() {
 
           <div className="contact-inner">
 
-            <p className="eyebrow">Let's Connect</p>
+            <p className="eyebrow">
+              Let's Connect
+            </p>
 
             <h2>
               Have an opportunity?
@@ -516,36 +501,51 @@ function App() {
 
             <div className="contact-links">
 
+              {/* EMAIL */}
               <a
                 href="mailto:prajwalgnprajwal7@gmail.com"
                 className="contact-item"
               >
                 <Mail size={20} />
-                <span>prajwalgnprajwal7@gmail.com</span>
+
+                <span>
+                  prajwalgnprajwal7@gmail.com
+                </span>
+
                 <ArrowUpRight size={17} />
               </a>
 
+              {/* GITHUB */}
               <a
-                href="https://github.com/PrajwalGN-35"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-item"
               >
                 <Github size={20} />
-                <span>github.com/PrajwalGN-35</span>
+
+                <span>
+                  github.com/PrajwalGN-35
+                </span>
+
                 <ArrowUpRight size={17} />
               </a>
 
+              {/* LINKEDIN */}
               <a
-                href="https://www.linkedin.com/in/prajwal-g-n-2b85b8359/"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-item"
               >
-                <span className="linkedin-text-icon">in</span>
+                <span className="linkedin-text-icon">
+                  in
+                </span>
+
                 <span>
                   linkedin.com/in/prajwal-g-n-2b85b8359
                 </span>
+
                 <ArrowUpRight size={17} />
               </a>
 
@@ -559,7 +559,10 @@ function App() {
 
           <footer className="footer">
             <span>© 2026 PGN</span>
-            <span>Data Science · AI · Machine Learning</span>
+
+            <span>
+              Data Science · AI · Machine Learning
+            </span>
           </footer>
 
         </section>
