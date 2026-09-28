@@ -2,15 +2,11 @@ import { useState } from 'react';
 import {
   ArrowUpRight,
   Github,
-  Linkedin,
   Mail,
-  Download,
   Brain,
   Database,
   Code2,
   BarChart3,
-  ChevronDown,
-  ExternalLink,
 } from 'lucide-react';
 
 const projects = [
@@ -56,22 +52,46 @@ const skills = [
   {
     icon: Brain,
     title: 'Artificial Intelligence',
-    items: ['AI', 'Generative AI', 'AI Agents', 'Prompt Engineering', 'Microsoft Foundry'],
+    items: [
+      'AI',
+      'Generative AI',
+      'AI Agents',
+      'Prompt Engineering',
+      'Microsoft Foundry',
+    ],
   },
   {
     icon: BarChart3,
     title: 'Data Science',
-    items: ['Data Analysis', 'Python', 'Pandas', 'Data Visualization', 'SQL'],
+    items: [
+      'Data Analysis',
+      'Python',
+      'Pandas',
+      'Data Visualization',
+      'SQL',
+    ],
   },
   {
     icon: Code2,
     title: 'Programming',
-    items: ['Python', 'C / C++', 'JavaScript', 'Object-Oriented Programming', 'Git'],
+    items: [
+      'Python',
+      'C / C++',
+      'JavaScript',
+      'Object-Oriented Programming',
+      'Git',
+    ],
   },
   {
     icon: Database,
     title: 'Cloud & APIs',
-    items: ['Microsoft Azure', 'Azure Functions', 'API Development', 'API Integration', 'GitHub'],
+    items: [
+      'Microsoft Azure',
+      'Azure Functions',
+      'API Development',
+      'API Integration',
+      'GitHub',
+    ],
   },
 ];
 
@@ -108,61 +128,67 @@ const certifications = [
   },
 ];
 
-function Arrow() {
-  return <ArrowUpRight className="arrow-icon" size={18} aria-hidden="true" />;
-}
-
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeProject, setActiveProject] = useState(0);
 
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: 'smooth',
-    });
-    setMenuOpen(false);
-  };
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="site-shell">
-      {/* Navigation */}
-      <header className="topbar">
-        <button
-          className="wordmark"
-          onClick={() => scrollTo('top')}
-          aria-label="Back to top"
-        >
+    <div className="site">
+
+      {/* NAVIGATION */}
+      <nav className="nav">
+        <a href="#top" className="brand" onClick={closeMenu}>
           PGN<span>.</span>
-        </button>
+        </a>
 
         <button
           className="menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-expanded={menuOpen}
           aria-label="Toggle navigation"
         >
-          <span>{menuOpen ? 'Close' : 'Menu'}</span>
-          <i className={menuOpen ? 'is-open' : ''}></i>
+          <span></span>
+          <span></span>
         </button>
 
-        <nav
-          className={menuOpen ? 'nav-links is-open' : 'nav-links'}
-          aria-label="Primary navigation"
-        >
-          <button onClick={() => scrollTo('work')}>Projects</button>
-          <button onClick={() => scrollTo('skills')}>Skills</button>
-          <button onClick={() => scrollTo('about')}>About</button>
-          <button onClick={() => scrollTo('certifications')}>
-            Certifications
-          </button>
-          <button onClick={() => scrollTo('contact')}>Contact</button>
-        </nav>
-      </header>
+        <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          <a href="#projects" onClick={closeMenu}>
+            Projects
+          </a>
 
+          <a href="#skills" onClick={closeMenu}>
+            Skills
+          </a>
+
+          <a href="#about" onClick={closeMenu}>
+            About
+          </a>
+
+          <a href="#certifications" onClick={closeMenu}>
+            Certifications
+          </a>
+
+          <a href="#contact" onClick={closeMenu}>
+            Contact
+          </a>
+        </div>
+
+        <a
+          href="https://www.linkedin.com/in/prajwal-g-n-2b85b8359/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-linkedin"
+        >
+          LinkedIn <ArrowUpRight size={15} />
+        </a>
+      </nav>
+
+      {/* HERO */}
       <main id="top">
-        {/* Hero */}
-        <section className="hero section-pad">
-          <div className="hero-copy reveal">
+
+        <section className="hero">
+          <div className="hero-content">
+
             <p className="eyebrow">
               Data Science / Artificial Intelligence
             </p>
@@ -173,133 +199,131 @@ function App() {
               <em>intelligent ideas.</em>
             </h1>
 
-            <p className="hero-intro">
-              I&apos;m Prajwal G N, a B.Tech Artificial Intelligence &amp;
-              Data Science student at REVA University. I&apos;m building
-              practical skills in Data Science, AI, Machine Learning,
-              Python, and data-driven problem solving.
+            <p className="hero-description">
+              I'm Prajwal G N, a B.Tech Artificial Intelligence &
+              Data Science student at REVA University. I build projects
+              around Data Science, Artificial Intelligence, Machine
+              Learning, and data-driven problem solving.
             </p>
 
             <div className="hero-actions">
-              <button
-                className="text-link primary-link"
-                onClick={() => scrollTo('work')}
-              >
-                Explore my work <Arrow />
-              </button>
 
               <a
-                className="text-link secondary-link"
+                href="#projects"
+                className="button button-primary"
+              >
+                Explore my work
+                <ArrowUpRight size={18} />
+              </a>
+
+              <a
                 href="https://github.com/PrajwalGN-35"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                className="button button-secondary"
               >
-                GitHub <Arrow />
+                <Github size={18} />
+                GitHub
               </a>
+
             </div>
           </div>
 
-          <div className="hero-art" aria-hidden="true">
-            <div className="art-sun"></div>
-            <div className="art-ring"></div>
-            <div className="art-line line-one"></div>
-            <div className="art-line line-two"></div>
+          <div className="hero-art">
+            <div className="art-circle"></div>
+            <div className="art-square"></div>
+            <div className="art-line art-line-one"></div>
+            <div className="art-line art-line-two"></div>
 
-            <div className="art-data">
-              <span>DATA</span>
-              <strong>→</strong>
-              <span>AI</span>
-            </div>
-
-            <span className="art-label">
-              curious
+            <div className="art-text">
+              DATA
               <br />
-              by default
-            </span>
-          </div>
-
-          <div className="scroll-cue">
-            <span>Scroll to explore</span>
-            <b></b>
+              ×
+              <br />
+              INTELLIGENCE
+            </div>
           </div>
         </section>
 
-        {/* Projects */}
-        <section className="work section-pad" id="work">
+        {/* PROJECTS */}
+        <section id="projects" className="section projects-section">
+
           <div className="section-heading">
-            <p className="eyebrow">Selected work / 01—04</p>
+            <p className="eyebrow">Selected Work</p>
 
             <h2>
-              Building to
+              Projects that turn
               <br />
-              <em>learn.</em>
+              <em>ideas into systems.</em>
             </h2>
-
-            <p className="section-description">
-              A collection of academic, simulation, and personal projects
-              through which I&apos;m developing practical skills in Data
-              Science and AI.
-            </p>
           </div>
 
-          <div className="project-list">
-            {projects.map((project, index) => (
-              <button
-                className={`project-row ${
-                  activeProject === index ? 'active' : ''
-                }`}
-                key={project.title}
-                onClick={() => setActiveProject(index)}
-              >
-                <span className="project-number">{project.number}</span>
+          <div className="projects-list">
 
-                <span
-                  className={`project-preview ${project.color}`}
-                  aria-hidden="true"
-                >
-                  <span>{project.title.slice(0, 1)}</span>
-                </span>
+            {projects.map((project) => (
+              <article className="project-card" key={project.number}>
 
-                <span className="project-info">
-                  <strong>{project.title}</strong>
-                  <small>{project.type}</small>
-                </span>
+                <div className="project-number">
+                  {project.number}
+                </div>
 
-                <span className="project-description">
-                  {project.description}
-                  <span className="project-tags">
+                <div className="project-info">
+
+                  <p className="project-type">
+                    {project.type}
+                  </p>
+
+                  <h3>{project.title}</h3>
+
+                  <p className="project-description">
+                    {project.description}
+                  </p>
+
+                  <div className="project-tags">
                     {project.tags.map((tag) => (
                       <span key={tag}>{tag}</span>
                     ))}
-                  </span>
-                </span>
+                  </div>
 
-                <Arrow />
-              </button>
+                </div>
+
+                <div
+                  className={`project-preview ${project.color}`}
+                  aria-hidden="true"
+                >
+                  <span></span>
+                </div>
+
+              </article>
             ))}
+
           </div>
         </section>
 
-        {/* Skills */}
-        <section className="skills section-pad" id="skills">
+        {/* SKILLS */}
+        <section id="skills" className="section skills-section">
+
           <div className="section-heading">
-            <p className="eyebrow">Technical toolkit</p>
+            <p className="eyebrow">Technical Skills</p>
 
             <h2>
-              Skills for
+              Tools I use to
               <br />
-              <em>building.</em>
+              <em>build & analyze.</em>
             </h2>
           </div>
 
           <div className="skills-grid">
+
             {skills.map((skill) => {
+
               const Icon = skill.icon;
 
               return (
                 <article className="skill-card" key={skill.title}>
+
                   <div className="skill-icon">
-                    <Icon size={22} />
+                    <Icon size={25} strokeWidth={1.8} />
                   </div>
 
                   <h3>{skill.title}</h3>
@@ -309,97 +333,125 @@ function App() {
                       <span key={item}>{item}</span>
                     ))}
                   </div>
+
                 </article>
               );
             })}
+
           </div>
         </section>
 
-        {/* About */}
-        <section className="about section-pad" id="about">
-          <div className="section-heading">
-            <p className="eyebrow">A little about me</p>
+        {/* ABOUT */}
+        <section id="about" className="section about-section">
 
-            <h2>
-              Curious by nature,
-              <br />
-              <em>technical by choice.</em>
-            </h2>
+          <div className="about-label">
+            <p className="eyebrow">About Me</p>
           </div>
 
-          <div className="about-body">
+          <div className="about-content">
+
+            <h2>
+              Curious by nature.
+              <br />
+              <em>Technical by choice.</em>
+            </h2>
+
             <p>
-              I am a B.Tech student specializing in Artificial Intelligence
-              and Data Science at REVA University, Bengaluru, with a current
+              I'm currently pursuing my B.Tech in Artificial Intelligence
+              & Data Science at REVA University, Bengaluru, with a current
               CGPA of 8.3/10.
             </p>
 
             <p>
               My interests are centered around Data Science and Artificial
-              Intelligence. I enjoy understanding data, experimenting with
-              technology, and turning what I learn into practical projects.
+              Intelligence. I enjoy working with Python, data analysis,
+              machine learning concepts, AI tools, APIs, and programming
+              to solve practical problems.
             </p>
 
             <p>
-              I&apos;m continuously strengthening my foundations in Python,
-              data analysis, machine learning, AI, programming, APIs, and
-              cloud technologies while looking for opportunities to apply
-              these skills in real-world environments.
+              I'm continuously learning, building projects, and looking
+              for opportunities where I can apply my technical skills to
+              meaningful real-world problems.
             </p>
 
-            <div className="availability">
-              <span></span>
+            <div className="about-links">
 
-              <div>
-                <strong>Currently focused on</strong>
+              <a
+                href="https://github.com/PrajwalGN-35"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+                <ArrowUpRight size={16} />
+              </a>
 
-                <small>
-                  Data Science · Artificial Intelligence · Machine Learning
-                  · Practical Projects
-                </small>
-              </div>
+              <a
+                href="https://www.linkedin.com/in/prajwal-g-n-2b85b8359/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+                <ArrowUpRight size={16} />
+              </a>
+
             </div>
+
           </div>
         </section>
 
-        {/* Education */}
-        <section className="education section-pad">
+        {/* EDUCATION */}
+        <section className="section education-section">
+
           <div className="section-heading">
             <p className="eyebrow">Education</p>
 
             <h2>
-              Learning the
+              Building the
               <br />
-              <em>foundations.</em>
+              <em>foundation.</em>
             </h2>
           </div>
 
           <div className="education-card">
-            <div>
-              <p className="education-year">2025 — 2029</p>
+
+            <div className="education-year">
+              2025 — 2029
+            </div>
+
+            <div className="education-info">
+
+              <p className="education-type">
+                Bachelor's Degree
+              </p>
 
               <h3>
-                B.Tech — Artificial Intelligence &amp; Data Science
+                B.Tech — Artificial Intelligence & Data Science
               </h3>
 
-              <p>REVA University · Bengaluru, India</p>
+              <p>
+                REVA University · Bengaluru, India
+              </p>
+
             </div>
 
             <div className="education-score">
-              <span>Current CGPA</span>
+              <span>CGPA</span>
               <strong>8.3</strong>
               <small>/ 10</small>
             </div>
+
           </div>
         </section>
 
-        {/* Certifications */}
+        {/* CERTIFICATIONS */}
         <section
-          className="certifications section-pad"
           id="certifications"
+          className="section certifications-section"
         >
+
           <div className="section-heading">
-            <p className="eyebrow">Learning &amp; credentials</p>
+            <p className="eyebrow">Certifications & Learning</p>
 
             <h2>
               Learning beyond
@@ -408,106 +460,110 @@ function App() {
             </h2>
           </div>
 
-          <div className="certification-list">
-            {certifications.map((cert, index) => (
-              <article className="certification-row" key={cert.title}>
-                <span className="cert-number">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
+          <div className="certifications-grid">
 
-                <div className="cert-main">
-                  <h3>{cert.title}</h3>
-                  <p>{cert.subtitle}</p>
+            {certifications.map((cert, index) => (
+
+              <article
+                className="certification-card"
+                key={`${cert.title}-${index}`}
+              >
+
+                <div className="certification-number">
+                  {String(index + 1).padStart(2, '0')}
                 </div>
 
-                <span className="cert-issuer">{cert.issuer}</span>
+                <div className="certification-content">
+
+                  <p>{cert.issuer}</p>
+
+                  <h3>{cert.title}</h3>
+
+                  <span>{cert.subtitle}</span>
+
+                </div>
+
+                <ArrowUpRight
+                  size={20}
+                  className="certification-arrow"
+                />
+
               </article>
+
             ))}
+
           </div>
         </section>
 
-        {/* Connect */}
-        <section className="contact section-pad" id="contact">
-          <p className="eyebrow">Let&apos;s connect</p>
+        {/* CONTACT */}
+        <section id="contact" className="contact-section">
 
-          <h2>
-            Let&apos;s build
-            <br />
-            <em>something useful.</em>
-          </h2>
+          <div className="contact-inner">
 
-          <p className="contact-intro">
-            I&apos;m interested in internship opportunities, Data Science
-            projects, AI opportunities, and connecting with people working
-            in these fields.
-          </p>
+            <p className="eyebrow">Let's Connect</p>
 
-          <div className="contact-links">
-            <a
-              className="contact-link"
-              href="mailto:prajwalgnprajwal7@gmail.com"
-            >
-              <Mail size={20} />
-              <span>prajwalgnprajwal7@gmail.com</span>
-              <Arrow />
-            </a>
+            <h2>
+              Have an opportunity?
+              <br />
+              <em>Let's talk.</em>
+            </h2>
 
-            <a
-              className="contact-link"
-              href="https://github.com/PrajwalGN-35"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Github size={20} />
-              <span>GitHub / PrajwalGN-35</span>
-              <Arrow />
-            </a>
+            <p className="contact-description">
+              I'm actively looking for internship opportunities in
+              Data Science, Artificial Intelligence, Machine Learning,
+              and related fields.
+            </p>
 
-            <a
-              className="contact-link"
-              href="https://www.linkedin.com/in/prajwal-g-n-2b85b8359/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Linkedin size={20} />
-              <span>LinkedIn / Prajwal G N</span>
-              <Arrow />
-            </a>
-          </div>
+            <div className="contact-links">
 
-          <div className="contact-footer">
-            <span>Bengaluru / India</span>
+              <a
+                href="mailto:prajwalgnprajwal7@gmail.com"
+                className="contact-item"
+              >
+                <Mail size={20} />
+                <span>prajwalgnprajwal7@gmail.com</span>
+                <ArrowUpRight size={17} />
+              </a>
 
-            <div className="footer-socials">
               <a
                 href="https://github.com/PrajwalGN-35"
                 target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
+                rel="noopener noreferrer"
+                className="contact-item"
               >
-                <Github size={18} />
+                <Github size={20} />
+                <span>github.com/PrajwalGN-35</span>
+                <ArrowUpRight size={17} />
               </a>
 
               <a
                 href="https://www.linkedin.com/in/prajwal-g-n-2b85b8359/"
                 target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
+                rel="noopener noreferrer"
+                className="contact-item"
               >
-                <Linkedin size={18} />
+                <span className="linkedin-text-icon">in</span>
+                <span>
+                  linkedin.com/in/prajwal-g-n-2b85b8359
+                </span>
+                <ArrowUpRight size={17} />
               </a>
 
-              <a
-                href="mailto:prajwalgnprajwal7@gmail.com"
-                aria-label="Email"
-              >
-                <Mail size={18} />
-              </a>
             </div>
 
-            <span>© 2026 PGN</span>
+            <div className="contact-location">
+              Bengaluru · India
+            </div>
+
           </div>
+
+          <footer className="footer">
+            <span>© 2026 PGN</span>
+            <span>Data Science · AI · Machine Learning</span>
+          </footer>
+
         </section>
+
       </main>
     </div>
   );
